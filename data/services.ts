@@ -1,0 +1,180 @@
+import { Service } from '@/types';
+
+export const services: Service[] = [
+  {
+    id: 'custom-software',
+    name: 'Custom Software Development',
+    description: 'Tailored software solutions designed to meet your unique business requirements with cutting-edge technology and scalable architecture.',
+    icon: '💻',
+    features: [
+      'Full-stack web applications',
+      'Mobile app development',
+      'API development and integration',
+      'Database design and optimization',
+      'Cloud deployment and scaling',
+      'Ongoing maintenance and support',
+    ],
+    process: [
+      {
+        step: 1,
+        title: 'Discovery & Planning',
+        description: 'We analyze your requirements, define project scope, and create a detailed development roadmap.',
+      },
+      {
+        step: 2,
+        title: 'Design & Architecture',
+        description: 'Our team designs the user experience and creates a robust technical architecture.',
+      },
+      {
+        step: 3,
+        title: 'Development & Testing',
+        description: 'We build your solution using agile methodologies with continuous testing and quality assurance.',
+      },
+      {
+        step: 4,
+        title: 'Deployment & Launch',
+        description: 'We deploy your application to production and provide comprehensive training and documentation.',
+      },
+    ],
+    benefits: [
+      'Faster time to market',
+      'Reduced operational costs',
+      'Improved efficiency and productivity',
+      'Enhanced security and compliance',
+      'Scalable and maintainable solutions',
+      '24/7 technical support',
+    ],
+  },
+  {
+    id: 'cloud-solutions',
+    name: 'Cloud Solutions & Migration',
+    description: 'Comprehensive cloud services including migration, optimization, and management to help you leverage the full power of cloud computing.',
+    icon: '☁️',
+    features: [
+      'Cloud strategy and planning',
+      'Application migration services',
+      'Infrastructure optimization',
+      'Security and compliance',
+      'Cost optimization',
+      '24/7 cloud monitoring',
+    ],
+    process: [
+      {
+        step: 1,
+        title: 'Cloud Assessment',
+        description: 'We evaluate your current infrastructure and identify migration opportunities.',
+      },
+      {
+        step: 2,
+        title: 'Migration Planning',
+        description: 'We create a detailed migration strategy with minimal downtime and risk.',
+      },
+      {
+        step: 3,
+        title: 'Implementation',
+        description: 'Our experts execute the migration with continuous monitoring and support.',
+      },
+      {
+        step: 4,
+        title: 'Optimization',
+        description: 'We optimize your cloud environment for performance, security, and cost.',
+      },
+    ],
+    benefits: [
+      'Reduced infrastructure costs',
+      'Improved scalability and flexibility',
+      'Enhanced security and compliance',
+      'Better disaster recovery',
+      'Increased operational efficiency',
+      'Access to latest cloud technologies',
+    ],
+  },
+  {
+    id: 'ai-integration',
+    name: 'AI Integration & Machine Learning',
+    description: 'Transform your business with artificial intelligence solutions including machine learning models, automation, and intelligent data analysis.',
+    icon: '🤖',
+    features: [
+      'Machine learning model development',
+      'AI-powered automation',
+      'Natural language processing',
+      'Computer vision solutions',
+      'Predictive analytics',
+      'AI strategy consulting',
+    ],
+    process: [
+      {
+        step: 1,
+        title: 'AI Strategy Development',
+        description: 'We assess your business needs and develop a comprehensive AI strategy.',
+      },
+      {
+        step: 2,
+        title: 'Data Preparation',
+        description: 'We clean, prepare, and structure your data for AI model training.',
+      },
+      {
+        step: 3,
+        title: 'Model Development',
+        description: 'Our data scientists develop and train custom AI models for your specific use cases.',
+      },
+      {
+        step: 4,
+        title: 'Integration & Deployment',
+        description: 'We integrate AI solutions into your existing systems and deploy to production.',
+      },
+    ],
+    benefits: [
+      'Automated decision making',
+      'Improved accuracy and efficiency',
+      'Enhanced customer experience',
+      'Predictive insights',
+      'Reduced manual work',
+      'Competitive advantage',
+    ],
+  },
+  {
+    id: 'app-development',
+    name: 'Mobile App Development',
+    description: 'Native and cross-platform mobile applications that deliver exceptional user experiences across iOS and Android devices.',
+    icon: '📱',
+    features: [
+      'Native iOS and Android apps',
+      'Cross-platform development',
+      'UI/UX design',
+      'App store optimization',
+      'Push notifications',
+      'Offline functionality',
+    ],
+    process: [
+      {
+        step: 1,
+        title: 'Concept & Design',
+        description: 'We define your app concept and create intuitive user interface designs.',
+      },
+      {
+        step: 2,
+        title: 'Development',
+        description: 'We build your app using the latest technologies and best practices.',
+      },
+      {
+        step: 3,
+        title: 'Testing & Quality Assurance',
+        description: 'We thoroughly test your app across devices and platforms.',
+      },
+      {
+        step: 4,
+        title: 'Launch & Maintenance',
+        description: 'We help you launch your app and provide ongoing maintenance and updates.',
+      },
+    ],
+    benefits: [
+      'Increased customer engagement',
+      'Enhanced brand presence',
+      'Improved customer service',
+      'New revenue opportunities',
+      'Competitive advantage',
+      'Better customer insights',
+    ],
+  },
+];
