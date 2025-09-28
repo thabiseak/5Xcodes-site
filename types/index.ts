@@ -45,7 +45,8 @@ export interface Product {
   id: string;
   name: string;
   description: string;
-  shortDescription: string;
+  shortDescription?: string;
+  longDescription?: string;
   features: string[];
   pricing: {
     basic: number;
@@ -53,7 +54,10 @@ export interface Product {
     enterprise: number;
   };
   image: string;
+  screenshots?: string[];
   demo: string;
+  demoUrl?: string;
+  documentationUrl?: string;
   category: string;
   featured: boolean;
 }
@@ -62,14 +66,18 @@ export interface Service {
   id: string;
   name: string;
   description: string;
+  longDescription?: string;
   icon: string;
   features: string[];
   process: {
     step: number;
     title: string;
     description: string;
+    icon: string;
   }[];
   benefits: string[];
+  caseStudies?: string[];
+  featured: boolean;
 }
 
 export interface TeamMember {

@@ -19,21 +19,25 @@ export const services: Service[] = [
         step: 1,
         title: 'Discovery & Planning',
         description: 'We analyze your requirements, define project scope, and create a detailed development roadmap.',
+        icon: 'DocumentTextIcon',
       },
       {
         step: 2,
         title: 'Design & Architecture',
         description: 'Our team designs the user experience and creates a robust technical architecture.',
+        icon: 'CogIcon',
       },
       {
         step: 3,
         title: 'Development & Testing',
         description: 'We build your solution using agile methodologies with continuous testing and quality assurance.',
+        icon: 'CodeBracketIcon',
       },
       {
         step: 4,
         title: 'Deployment & Launch',
         description: 'We deploy your application to production and provide comprehensive training and documentation.',
+        icon: 'RocketLaunchIcon',
       },
     ],
     benefits: [
@@ -44,6 +48,7 @@ export const services: Service[] = [
       'Scalable and maintainable solutions',
       '24/7 technical support',
     ],
+    featured: true,
   },
   {
     id: 'cloud-solutions',
@@ -63,21 +68,25 @@ export const services: Service[] = [
         step: 1,
         title: 'Cloud Assessment',
         description: 'We evaluate your current infrastructure and identify migration opportunities.',
+        icon: 'DocumentTextIcon',
       },
       {
         step: 2,
         title: 'Migration Planning',
         description: 'We create a detailed migration strategy with minimal downtime and risk.',
+        icon: 'CogIcon',
       },
       {
         step: 3,
         title: 'Implementation',
         description: 'Our experts execute the migration with continuous monitoring and support.',
+        icon: 'CodeBracketIcon',
       },
       {
         step: 4,
         title: 'Optimization',
         description: 'We optimize your cloud environment for performance, security, and cost.',
+        icon: 'ChartBarIcon',
       },
     ],
     benefits: [
@@ -88,6 +97,7 @@ export const services: Service[] = [
       'Increased operational efficiency',
       'Access to latest cloud technologies',
     ],
+    featured: true,
   },
   {
     id: 'ai-integration',
@@ -107,21 +117,25 @@ export const services: Service[] = [
         step: 1,
         title: 'AI Strategy Development',
         description: 'We assess your business needs and develop a comprehensive AI strategy.',
+        icon: 'DocumentTextIcon',
       },
       {
         step: 2,
         title: 'Data Preparation',
         description: 'We clean, prepare, and structure your data for AI model training.',
+        icon: 'CogIcon',
       },
       {
         step: 3,
         title: 'Model Development',
         description: 'Our data scientists develop and train custom AI models for your specific use cases.',
+        icon: 'CodeBracketIcon',
       },
       {
         step: 4,
         title: 'Integration & Deployment',
         description: 'We integrate AI solutions into your existing systems and deploy to production.',
+        icon: 'RocketLaunchIcon',
       },
     ],
     benefits: [
@@ -132,6 +146,7 @@ export const services: Service[] = [
       'Reduced manual work',
       'Competitive advantage',
     ],
+    featured: true,
   },
   {
     id: 'app-development',
@@ -151,21 +166,25 @@ export const services: Service[] = [
         step: 1,
         title: 'Concept & Design',
         description: 'We define your app concept and create intuitive user interface designs.',
+        icon: 'DocumentTextIcon',
       },
       {
         step: 2,
         title: 'Development',
         description: 'We build your app using the latest technologies and best practices.',
+        icon: 'CodeBracketIcon',
       },
       {
         step: 3,
         title: 'Testing & Quality Assurance',
         description: 'We thoroughly test your app across devices and platforms.',
+        icon: 'CheckCircleIcon',
       },
       {
         step: 4,
         title: 'Launch & Maintenance',
         description: 'We help you launch your app and provide ongoing maintenance and updates.',
+        icon: 'RocketLaunchIcon',
       },
     ],
     benefits: [
@@ -176,5 +195,6 @@ export const services: Service[] = [
       'Competitive advantage',
       'Better customer insights',
     ],
+    featured: true,
   },
 ];
