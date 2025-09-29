@@ -1,8 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import { StarIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 
 const testimonials = [
@@ -20,244 +18,180 @@ const testimonials = [
   {
     id: 2,
     name: 'Michael Chen',
-    role: 'Founder & CEO',
-    company: 'StartupXYZ',
+    role: 'CEO',
+    company: 'InnovateLabs',
     avatar: '/images/testimonials/michael-chen.jpg',
     rating: 5,
-    text: 'Working with 5Xcodes was a game-changer for our startup. They delivered our MVP 5x faster than expected, and the quality exceeded our expectations. Highly recommended!',
-    project: 'SaaS Platform Development',
-    results: '5x faster delivery'
+    text: 'The mobile application they developed for us exceeded all expectations. The user experience is flawless, and the performance is outstanding. We\'ve seen a 250% increase in user engagement.',
+    project: 'Mobile Banking App',
+    results: '250% user engagement increase'
   },
   {
     id: 3,
     name: 'Emily Rodriguez',
-    role: 'VP of Engineering',
-    company: 'Enterprise Solutions Ltd.',
+    role: 'VP of Technology',
+    company: 'DataFlow Systems',
     avatar: '/images/testimonials/emily-rodriguez.jpg',
     rating: 5,
-    text: 'The cloud migration project was executed flawlessly. 5Xcodes not only met our requirements but also provided valuable insights that improved our overall architecture.',
-    project: 'Cloud Migration & DevOps',
-    results: 'Zero downtime migration'
+    text: 'Their cloud migration services saved us thousands of dollars in infrastructure costs while improving our system performance by 400%. Highly recommend their expertise.',
+    project: 'Cloud Infrastructure Migration',
+    results: '400% performance improvement'
   },
   {
     id: 4,
     name: 'David Kim',
-    role: 'Product Manager',
-    company: 'Innovation Labs',
+    role: 'Founder',
+    company: 'StartupHub',
     avatar: '/images/testimonials/david-kim.jpg',
     rating: 5,
-    text: 'Their mobile app development expertise is outstanding. The app they built for us has over 1M downloads and maintains a 4.9-star rating. Exceptional work!',
-    project: 'Mobile App Development',
-    results: '1M+ downloads, 4.9★ rating'
+    text: '5Xcodes helped us build our MVP in record time. Their agile development approach and technical expertise were crucial to our success. We couldn\'t have done it without them.',
+    project: 'SaaS Platform MVP',
+    results: '50% faster time to market'
   },
   {
     id: 5,
     name: 'Lisa Thompson',
     role: 'Head of Digital',
-    company: 'Global Retail Corp',
+    company: 'RetailMax',
     avatar: '/images/testimonials/lisa-thompson.jpg',
     rating: 5,
-    text: '5Xcodes helped us modernize our legacy systems and implement cutting-edge analytics. Our revenue increased by 150% within the first year of implementation.',
-    project: 'Digital Transformation',
-    results: '150% revenue increase'
-  },
-  {
-    id: 6,
-    name: 'James Wilson',
-    role: 'IT Director',
-    company: 'Financial Services Inc.',
-    avatar: '/images/testimonials/james-wilson.jpg',
-    rating: 5,
-    text: 'Security and compliance were our top priorities. 5Xcodes delivered a solution that not only met all regulatory requirements but also improved our system performance.',
-    project: 'Security & Compliance',
-    results: '100% compliance achieved'
+    text: 'The e-commerce platform they built for us is absolutely phenomenal. Sales have increased by 180% since launch, and the customer experience is seamless.',
+    project: 'E-commerce Platform',
+    results: '180% sales increase'
   }
 ];
 
-const clientLogos = [
-  { name: 'TechCorp', logo: '/images/clients/techcorp.svg' },
-  { name: 'StartupXYZ', logo: '/images/clients/startupxyz.svg' },
-  { name: 'Enterprise Solutions', logo: '/images/clients/enterprise.svg' },
-  { name: 'Innovation Labs', logo: '/images/clients/innovation.svg' },
-  { name: 'Global Retail', logo: '/images/clients/global-retail.svg' },
-  { name: 'Financial Services', logo: '/images/clients/financial.svg' },
-];
-
 export function Testimonials() {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setDirection(1);
+    if (!isAutoPlaying) return;
+
+    const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
     }, 5000);
 
-    return () => clearInterval(timer);
-  }, []);
+    return () => clearInterval(interval);
+  }, [isAutoPlaying]);
 
-  const goToPrevious = () => {
-    setDirection(-1);
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
-  };
-
-  const goToNext = () => {
-    setDirection(1);
+  const nextTestimonial = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+    setIsAutoPlaying(false);
   };
 
-  const goToSlide = (index: number) => {
-    setDirection(index > currentIndex ? 1 : -1);
+  const prevTestimonial = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
+    setIsAutoPlaying(false);
+  };
+
+  const goToTestimonial = (index: number) => {
     setCurrentIndex(index);
+    setIsAutoPlaying(false);
   };
 
   return (
-    <section ref={ref} className="py-24 bg-gradient-to-b from-white to-gray-50">
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
-            <span className="bg-gradient-to-r from-deep-blue to-electric-blue bg-clip-text text-transparent">
-              What Our Clients Say
-            </span>
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            What Our <span className="bg-gradient-to-r from-electric-blue to-neon-purple bg-clip-text text-transparent">Clients Say</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Don't just take our word for it. Here's what industry leaders say about 
-            working with 5Xcodes.
+            Don't just take our word for it. Here's what our satisfied clients have to say about their experience with 5Xcodes.
           </p>
-        </motion.div>
+        </div>
 
-        {/* Testimonials Carousel */}
-        <div className="relative mb-16">
-          <div className="overflow-hidden rounded-2xl">
-            <AnimatePresence mode="wait" custom={direction}>
-              <motion.div
-                key={currentIndex}
-                custom={direction}
-                initial={{ opacity: 0, x: direction > 0 ? 300 : -300 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: direction > 0 ? -300 : 300 }}
-                transition={{ duration: 0.5, ease: 'easeInOut' }}
-                className="bg-white rounded-2xl p-8 md:p-12 shadow-glass border border-white/20"
-              >
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                  {/* Testimonial Content */}
-                  <div>
-                    <div className="flex items-center mb-6">
-                      {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                        <StarIcon key={i} className="w-6 h-6 text-yellow-400" />
-                      ))}
-                    </div>
-                    
-                    <blockquote className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed">
-                      "{testimonials[currentIndex].text}"
-                    </blockquote>
+        {/* Testimonial Carousel */}
+        <div className="relative">
+          {/* Main Testimonial */}
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-glass border border-white/20 p-8 lg:p-12 text-center">
+            {/* Stars */}
+            <div className="flex justify-center mb-6">
+              {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
+                <StarIcon key={i} className="w-6 h-6 text-yellow-400" />
+              ))}
+            </div>
 
-                    <div className="flex items-center">
-                      <div className="w-16 h-16 bg-gradient-to-br from-electric-blue to-neon-purple rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
-                        {testimonials[currentIndex].name.split(' ').map(n => n[0]).join('')}
-                      </div>
-                      <div>
-                        <div className="font-semibold text-gray-900 text-lg">
-                          {testimonials[currentIndex].name}
-                        </div>
-                        <div className="text-gray-600">
-                          {testimonials[currentIndex].role} at {testimonials[currentIndex].company}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+            {/* Quote */}
+            <blockquote className="text-xl lg:text-2xl text-gray-700 mb-8 leading-relaxed">
+              "{testimonials[currentIndex].text}"
+            </blockquote>
 
-                  {/* Project Details */}
-                  <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6">
-                    <h4 className="font-semibold text-gray-900 mb-4">Project Highlights</h4>
-                    <div className="space-y-4">
-                      <div>
-                        <div className="text-sm text-gray-600 mb-1">Project</div>
-                        <div className="font-medium text-gray-900">
-                          {testimonials[currentIndex].project}
-                        </div>
-                      </div>
-                      <div>
-                        <div className="text-sm text-gray-600 mb-1">Results</div>
-                        <div className="font-medium text-electric-blue">
-                          {testimonials[currentIndex].results}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </AnimatePresence>
+            {/* Author */}
+            <div className="flex flex-col items-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-electric-blue to-neon-purple rounded-full flex items-center justify-center mb-4">
+                <span className="text-white font-bold text-xl">
+                  {testimonials[currentIndex].name.charAt(0)}
+                </span>
+              </div>
+              <div className="text-lg font-semibold text-gray-900">
+                {testimonials[currentIndex].name}
+              </div>
+              <div className="text-gray-600">
+                {testimonials[currentIndex].role}, {testimonials[currentIndex].company}
+              </div>
+              <div className="text-sm text-electric-blue font-medium mt-2">
+                {testimonials[currentIndex].project} • {testimonials[currentIndex].results}
+              </div>
+            </div>
           </div>
 
-          {/* Navigation Controls */}
+          {/* Navigation */}
           <div className="flex justify-center items-center mt-8 space-x-4">
             <button
-              onClick={goToPrevious}
-              className="p-3 bg-white rounded-full shadow-glass border border-white/20 hover:shadow-glass-lg transition-all duration-300 hover:scale-110"
+              onClick={prevTestimonial}
+              className="p-3 bg-white/80 backdrop-blur-sm rounded-full shadow-glass border border-white/20 hover:shadow-glass-lg transition-all duration-300 hover:scale-110"
+              aria-label="Previous testimonial"
             >
-              <ChevronLeftIcon className="w-6 h-6 text-gray-600" />
+              <ChevronLeftIcon className="w-5 h-5 text-gray-600" />
             </button>
 
-            {/* Dots Indicator */}
+            {/* Dots */}
             <div className="flex space-x-2">
               {testimonials.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => goToSlide(index)}
+                  onClick={() => goToTestimonial(index)}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
                     index === currentIndex
                       ? 'bg-gradient-to-r from-electric-blue to-neon-purple scale-125'
                       : 'bg-gray-300 hover:bg-gray-400'
                   }`}
+                  aria-label={`Go to testimonial ${index + 1}`}
                 />
               ))}
             </div>
 
             <button
-              onClick={goToNext}
-              className="p-3 bg-white rounded-full shadow-glass border border-white/20 hover:shadow-glass-lg transition-all duration-300 hover:scale-110"
+              onClick={nextTestimonial}
+              className="p-3 bg-white/80 backdrop-blur-sm rounded-full shadow-glass border border-white/20 hover:shadow-glass-lg transition-all duration-300 hover:scale-110"
+              aria-label="Next testimonial"
             >
-              <ChevronRightIcon className="w-6 h-6 text-gray-600" />
+              <ChevronRightIcon className="w-5 h-5 text-gray-600" />
             </button>
           </div>
         </div>
 
-        {/* Client Logos */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-center"
-        >
-          <h3 className="text-lg font-semibold text-gray-600 mb-8">
-            Trusted by Industry Leaders
-          </h3>
-          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-            {clientLogos.map((client, index) => (
-              <motion.div
-                key={client.name}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                whileHover={{ scale: 1.1, opacity: 1 }}
-                className="w-24 h-12 bg-gray-200 rounded-lg flex items-center justify-center"
-              >
-                <span className="text-sm font-medium text-gray-600">{client.name}</span>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+        {/* Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
+          {[
+            { number: '500+', label: 'Happy Clients' },
+            { number: '99%', label: 'Satisfaction Rate' },
+            { number: '5X', label: 'Faster Delivery' },
+            { number: '24/7', label: 'Support Available' },
+          ].map((stat, index) => (
+            <div key={index} className="text-center">
+              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-electric-blue to-neon-purple bg-clip-text text-transparent mb-2">
+                {stat.number}
+              </div>
+              <div className="text-sm text-gray-600 font-medium">
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

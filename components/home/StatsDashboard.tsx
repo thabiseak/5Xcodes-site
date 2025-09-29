@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 
 interface StatCardProps {
@@ -13,11 +12,7 @@ interface StatCardProps {
 
 const StatCard = ({ title, value, change, isPositive, icon }: StatCardProps) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      whileHover={{ scale: 1.05 }}
+    <div
       className="stats-card group"
     >
       <div className="flex items-center justify-between mb-4">
@@ -32,16 +27,13 @@ const StatCard = ({ title, value, change, isPositive, icon }: StatCardProps) => 
         <h3 className="text-2xl font-bold text-white">{value}</h3>
         <p className="text-slate-400 text-sm">{title}</p>
       </div>
-    </motion.div>
+    </div>
   )
 }
 
 const MarketCard = ({ name, percentage, amount }: { name: string; percentage: number; amount: string }) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, x: -20 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.6 }}
+    <div
       className="bg-slate-800/30 backdrop-blur-sm border border-slate-700/40 rounded-xl p-4 hover:bg-slate-800/40 transition-all duration-300"
     >
       <div className="flex items-center justify-between mb-3">
@@ -49,15 +41,13 @@ const MarketCard = ({ name, percentage, amount }: { name: string; percentage: nu
         <span className="text-electric-blue font-bold">{percentage}%</span>
       </div>
       <div className="w-full bg-slate-700/50 rounded-full h-2 mb-2">
-        <motion.div
-          initial={{ width: 0 }}
-          whileInView={{ width: `${percentage}%` }}
-          transition={{ duration: 1, delay: 0.5 }}
+        <div
           className="h-2 bg-gradient-to-r from-electric-blue to-cyan-400 rounded-full"
+          style={{ width: `${percentage}%` }}
         />
       </div>
       <p className="text-slate-400 text-sm">{amount}</p>
-    </motion.div>
+    </div>
   )
 }
 
@@ -142,10 +132,7 @@ export default function StatsDashboard() {
     <section id="stats-section" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+        <div
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold cosmic-text mb-6">
@@ -154,7 +141,7 @@ export default function StatsDashboard() {
           <p className="text-xl text-slate-400 max-w-3xl mx-auto">
             Real-time metrics showcasing the strength and growth of our DeFi ecosystem
           </p>
-        </motion.div>
+        </div>
 
         {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
@@ -171,10 +158,7 @@ export default function StatsDashboard() {
         </div>
 
         {/* Market Distribution */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+        <div
           className="bg-slate-800/30 backdrop-blur-sm border border-slate-700/40 rounded-2xl p-8"
         >
           <div className="mb-8">
@@ -192,20 +176,17 @@ export default function StatsDashboard() {
               />
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* Live Activity Indicator */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+        <div
           className="mt-12 text-center"
         >
           <div className="inline-flex items-center space-x-2 bg-slate-800/50 border border-slate-700/50 rounded-full px-6 py-3">
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
             <span className="text-slate-300 font-medium">Live Protocol Activity</span>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
   Bars3Icon, 
   XMarkIcon,
@@ -127,7 +127,7 @@ export default function Header() {
 
                 {/* Dropdown Menu */}
                 {item.children && (
-                  <AnimatePresence>
+                  <>
                     {activeDropdown === item.name && (
                       <motion.div
                         initial={{ opacity: 0, y: 10 }}
@@ -147,7 +147,7 @@ export default function Header() {
                         ))}
                       </motion.div>
                     )}
-                  </AnimatePresence>
+                  </>
                 )}
               </div>
             ))}
@@ -189,7 +189,7 @@ export default function Header() {
         </div>
 
         {/* Mobile Navigation */}
-        <AnimatePresence>
+        <>
           {mobileMenuOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
@@ -242,7 +242,7 @@ export default function Header() {
               </div>
             </motion.div>
           )}
-        </AnimatePresence>
+        </>
       </nav>
     </motion.header>
   );

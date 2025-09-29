@@ -3,13 +3,13 @@
   "/page": "app/page.js",
   "/robots.txt/route": "app/robots.txt/route.js",
   "/sitemap.xml/route": "app/sitemap.xml/route.js",
-  "/portfolio/page": "app/portfolio/page.js",
-  "/blog/page": "app/blog/page.js",
   "/about/page": "app/about/page.js",
-  "/products/page": "app/products/page.js",
   "/contact/page": "app/contact/page.js",
+  "/blog/page": "app/blog/page.js",
+  "/portfolio/page": "app/portfolio/page.js",
+  "/products/page": "app/products/page.js",
   "/services/custom-development/page": "app/services/custom-development/page.js",
+  "/services/cloud-solutions/page": "app/services/cloud-solutions/page.js",
   "/privacy/page": "app/privacy/page.js",
-  "/terms/page": "app/terms/page.js",
-  "/services/cloud-solutions/page": "app/services/cloud-solutions/page.js"
+  "/terms/page": "app/terms/page.js"
 }

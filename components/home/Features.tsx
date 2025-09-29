@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 interface FeatureCardProps {
@@ -12,25 +11,20 @@ interface FeatureCardProps {
 
 const FeatureCard = ({ icon, title, description, delay }: FeatureCardProps) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay }}
-      whileHover={{ y: -5 }}
+    <div
       className="feature-card group"
     >
       <div className="flex items-center justify-between mb-6">
         <div className="p-4 bg-gradient-to-br from-electric-blue/20 to-cyan-400/20 rounded-2xl group-hover:from-electric-blue/30 group-hover:to-cyan-400/30 transition-all duration-300">
           {icon}
         </div>
-        <motion.div
-          whileHover={{ scale: 1.1 }}
+        <div
           className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         >
           <svg className="w-5 h-5 text-electric-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
-        </motion.div>
+        </div>
       </div>
       
       <h3 className="text-xl font-bold text-white mb-4 group-hover:text-electric-blue transition-colors duration-300">
@@ -46,16 +40,16 @@ const FeatureCard = ({ icon, title, description, delay }: FeatureCardProps) => {
         className="inline-flex items-center text-electric-blue hover:text-cyan-400 font-semibold text-sm transition-colors duration-300 group/link"
       >
         Read More
-        <motion.svg
+        <svg
           className="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform duration-300"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
         >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </motion.svg>
+        </svg>
       </Link>
-    </motion.div>
+    </div>
   )
 }
 
@@ -107,10 +101,7 @@ export default function Features() {
     <section className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+        <div
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold cosmic-text mb-6">
@@ -119,7 +110,7 @@ export default function Features() {
           <p className="text-xl text-slate-400 max-w-3xl mx-auto">
             Cutting-edge technology and innovative features that set the standard for decentralized finance
           </p>
-        </motion.div>
+        </div>
 
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -135,10 +126,7 @@ export default function Features() {
         </div>
 
         {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
+        <div
           className="mt-16 text-center"
         >
           <div className="bg-slate-800/30 backdrop-blur-sm border border-slate-700/40 rounded-2xl p-8">
@@ -163,7 +151,7 @@ export default function Features() {
               </Link>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

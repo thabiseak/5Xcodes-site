@@ -219,6 +219,7 @@ export default function Footer() {
             </div>
           </motion.div>
         </div>
+      </div>
 
         {/* Bottom Footer */}
         <div className="bg-gray-900 text-white">
@@ -256,7 +257,6 @@ export default function Footer() {
             </div>
           </div>
         </div>
-      </div>
     </footer>
   );
 }
